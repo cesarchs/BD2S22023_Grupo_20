@@ -104,5 +104,146 @@ GO
 	insert into [practica1].[HistoryLog] (Date,Description) select getDate(), 'Se actualizo con exito un Usuario.'
 	end
 
+ -- Insert
+ GO
+	create trigger Trigger1
+	on practica1.Usuarios
+	for insert
+	as
+	begin
+	set nocount on;
+	insert into practica1.HistoryLog (Date,Description) select getDate(), 'Se hizo un INSERT en la tabla Usuarios satisfactoriamente.'
+	from inserted
+	end
+
+
+
+	-- Delete
+GO
+	create trigger Trigger2
+	on practica1.Usuarios instead of delete
+	as
+	begin
+	set nocount on;
+	insert into [practica1].[HistoryLog] (Date,Description) select getDate(), 'Se elimino con exito un Usuario de la tabla.'
+	from deleted
+	end
+
+	-- Update
+GO
+	create trigger Trigger3
+	on [practica1].[Usuarios]
+	for update
+	as
+	begin
+	set nocount on;
+	insert into [practica1].[HistoryLog] (Date,Description) select getDate(), 'Se actualizo con exito un Usuario.'
+	end
+
+
+
+
+
+	     -- Insert
+ GO
+	create trigger Trigger1
+	on practica1.Usuarios
+	for insert
+	as
+	begin
+	set nocount on;
+	insert into practica1.HistoryLog (Date,Description) select getDate(), 'Se hizo un INSERT en la tabla Usuarios satisfactoriamente.'
+	from inserted
+	end
+
+
+
+	-- Delete
+GO
+	create trigger Trigger2
+	on practica1.Usuarios instead of delete
+	as
+	begin
+	set nocount on;
+	insert into [practica1].[HistoryLog] (Date,Description) select getDate(), 'Se elimino con exito un Usuario de la tabla.'
+	from deleted
+	end
+
+	-- Update
+GO
+	create trigger Trigger3
+	on [practica1].[Usuarios]
+	for update
+	as
+	begin
+	set nocount on;
+	insert into [practica1].[HistoryLog] (Date,Description) select getDate(), 'Se actualizo con exito un Usuario.'
+	end
+
+
+
 
 -- FUNCIONES
+
+	    /*
+-- Func_course_usuarios
+*/
+GO
+CREATE FUNCTION practica1.F1(@CodCourse INT)
+	RETURNS TABLE
+	AS
+	RETURN
+	SELECT US.FirstName, US.LastName, US.Email, US.DateOfBirth
+	FROM practica1.Usuarios US, practica1.CourseAssignment CA, practica1.Course C
+	WHERE US.Id = CA.StudentId
+	AND CA.CourseCodCourse = C.CodCourse
+	AND C.CodCourse = @CodCourse;
+
+-- F2
+GO
+CREATE FUNCTION practica1.F1(@CodCourse INT)
+	RETURNS TABLE
+	AS
+	RETURN
+	SELECT US.FirstName, US.LastName, US.Email, US.DateOfBirth
+	FROM practica1.Usuarios US, practica1.CourseAssignment CA, practica1.Course C
+	WHERE US.Id = CA.StudentId
+	AND CA.CourseCodCourse = C.CodCourse
+	AND C.CodCourse = @CodCourse;
+
+
+-- F3
+GO
+CREATE FUNCTION practica1.F1(@CodCourse INT)
+	RETURNS TABLE
+	AS
+	RETURN
+	SELECT US.FirstName, US.LastName, US.Email, US.DateOfBirth
+	FROM practica1.Usuarios US, practica1.CourseAssignment CA, practica1.Course C
+	WHERE US.Id = CA.StudentId
+	AND CA.CourseCodCourse = C.CodCourse
+	AND C.CodCourse = @CodCourse;
+
+--F4
+GO
+CREATE FUNCTION practica1.F1(@CodCourse INT)
+	RETURNS TABLE
+	AS
+	RETURN
+	SELECT US.FirstName, US.LastName, US.Email, US.DateOfBirth
+	FROM practica1.Usuarios US, practica1.CourseAssignment CA, practica1.Course C
+	WHERE US.Id = CA.StudentId
+	AND CA.CourseCodCourse = C.CodCourse
+	AND C.CodCourse = @CodCourse;
+
+-- F5
+GO
+CREATE FUNCTION practica1.F1(@CodCourse INT)
+	RETURNS TABLE
+	AS
+	RETURN
+	SELECT US.FirstName, US.LastName, US.Email, US.DateOfBirth
+	FROM practica1.Usuarios US, practica1.CourseAssignment CA, practica1.Course C
+	WHERE US.Id = CA.StudentId
+	AND CA.CourseCodCourse = C.CodCourse
+	AND C.CodCourse = @CodCourse;
