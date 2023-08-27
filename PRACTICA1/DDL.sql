@@ -39,7 +39,7 @@ BEGIN
 	ELSE
 		RAISERROR ( 'Email ya está registrado.',1,1); --TIRAR EL ERROR XD
 END;
-    
+
 -- PR4
 GO
  CREATE PROCEDURE [practica1].[PR4]
@@ -64,5 +64,45 @@ BEGIN
 END;
 
 -- TRIGGERS
+
+--------USUARIOS
+
+
+ -- Insert
+ GO
+	create trigger Trigger1
+	on practica1.Usuarios
+	for insert
+	as
+	begin
+	set nocount on;
+	insert into practica1.HistoryLog (Date,Description) select getDate(), 'Se hizo un INSERT en la tabla Usuarios satisfactoriamente.'
+	from inserted
+	end
+
+
+
+	-- Delete
+GO
+	create trigger Trigger2
+	on practica1.Usuarios instead of delete
+	as
+	begin
+	set nocount on;
+	insert into [practica1].[HistoryLog] (Date,Description) select getDate(), 'Se elimino con exito un Usuario de la tabla.'
+	from deleted
+	end
+
+	-- Update
+GO
+	create trigger Trigger3
+	on [practica1].[Usuarios]
+	for update
+	as
+	begin
+	set nocount on;
+	insert into [practica1].[HistoryLog] (Date,Description) select getDate(), 'Se actualizo con exito un Usuario.'
+	end
+
 
 -- FUNCIONES
