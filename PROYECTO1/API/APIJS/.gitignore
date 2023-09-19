@@ -131,3 +131,5 @@ dist
 
 .nodemodules
 nodemodules
+node_modules
+.env
