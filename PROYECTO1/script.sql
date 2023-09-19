@@ -1,11 +1,11 @@
 CREATE TABLE region (
-    checksum VARCHAR(50) PRIMARY KEY,
+    id INT PRIMARY KEY,
     identifier VARCHAR(50),
     nombre VARCHAR(50),
 );
 
 CREATE TABLE collections (
-    checksum VARCHAR(50) PRIMARY KEY,
+    id INT PRIMARY KEY,
     name VARCHAR(100),
     url VARCHAR(255)
 );
@@ -20,11 +20,11 @@ CREATE TABLE game(
     local_rating VARCHAR(50),
     storyline VARCHAR(255),
     collections VARCHAR(50),
-    FOREIGN KEY (collections) REFERENCES collections(checksum)
+    FOREIGN KEY (collections) REFERENCES collections(id)
 );
 
 CREATE TABLE release_date (
-    checksum VARCHAR(50) PRIMARY KEY,
+    id INT PRIMARY KEY,
     date DATE,
     game VARCHAR(50),
     human VARCHAR(50),
@@ -38,58 +38,58 @@ CREATE TABLE release_date (
 );
 
 CREATE TABLE game_localization (
-    checksum VARCHAR(50) PRIMARY KEY,
+    id INT PRIMARY KEY,
     game INT,
     name VARCHAR(50),
     region VARCHAR(50),
     FOREIGN KEY (game) REFERENCES game(id_game),
-    FOREIGN KEY (region) REFERENCES region(checksum)
+    FOREIGN KEY (region) REFERENCES region(id)
 );
 
 CREATE TABLE genre (
-    checksum VARCHAR(50) PRIMARY KEY,
+    id INT PRIMARY KEY,
     name VARCHAR(50),
     url VARCHAR(255)
 );
 
 CREATE TABLE genres_game(
-    checksum VARCHAR(50),
+    id INT,
     id_game INT,
-    PRIMARY KEY (checksum, id_game),
-    FOREIGN KEY (checksum) REFERENCES genre(checksum),
+    PRIMARY KEY (id, id_game),
+    FOREIGN KEY (id) REFERENCES genre(id),
     FOREIGN KEY (id_game) REFERENCES game(id_game)
 );
 
 CREATE TABLE game_mode(
-    checksum VARCHAR(50) PRIMARY KEY,
+    id INT PRIMARY KEY,
     name VARCHAR(50),
     url VARCHAR(255)
 );
 
 CREATE TABLE game_mode_game (
-    checksum VARCHAR(50),
+    id INT,
     id_game INT,
-    PRIMARY KEY (checksum, id_game),
-    FOREIGN KEY (checksum) REFERENCES genre(checksum),
+    PRIMARY KEY (id, id_game),
+    FOREIGN KEY (id) REFERENCES genre(id),
     FOREIGN KEY (id_game) REFERENCES game(id_game)
 );
 
 CREATE TABLE franchise(
-    checksum VARCHAR(50) PRIMARY KEY,
+    id INT PRIMARY KEY,
     name VARCHAR(50),
     url VARCHAR(255)
 );
 
 CREATE TABLE franchise_game (
-    checksum VARCHAR(50),
+    id INT,
     id_game INT,
-    PRIMARY KEY (checksum, id_game),
-    FOREIGN KEY (checksum) REFERENCES franchise(checksum),
+    PRIMARY KEY (id, id_game),
+    FOREIGN KEY (id) REFERENCES franchise(id),
     FOREIGN KEY (id_game) REFERENCES game(id_game)
 );
 
 CREATE TABLE alternative_name (
-    checksum VARCHAR(50) PRIMARY KEY,
+    id INT PRIMARY KEY,
     id_game INT,
     comment VARCHAR(255),
     name VARCHAR(50),
@@ -102,12 +102,12 @@ CREATE TABLE platform_enum (
 );
 
 CREATE TABLE platform_family (
-    checksum VARCHAR(50) PRIMARY KEY,
+    id INT PRIMARY KEY,
     name VARCHAR(50)
 );
 
 CREATE TABLE platform (
-    checksum VARCHAR(50) PRIMARY KEY,
+    id INT PRIMARY KEY,
     abbreviation VARCHAR(50),
     alternative_name VARCHAR(50),
     platform_enum INT,
@@ -117,70 +117,70 @@ CREATE TABLE platform (
     summary VARCHAR(255),
     url VARCHAR(255),
     FOREIGN KEY (platform_enum) REFERENCES platform_enum(id),
-    FOREIGN KEY (platform_family) REFERENCES platform_family(checksum),     
+    FOREIGN KEY (platform_family) REFERENCES platform_family(id),     
 );
 
 CREATE TABLE platform_game (
-    checksum VARCHAR(50),
+    id INT,
     id_game INT,
-    PRIMARY KEY (id_game, checksum), 
-    FOREIGN KEY (checksum) REFERENCES platform(checksum),
+    PRIMARY KEY (id_game, id), 
+    FOREIGN KEY (id) REFERENCES platform(id),
     FOREIGN KEY (id_game) REFERENCES game(id_game)
 );
 
 CREATE TABLE theme (
-    checksum VARCHAR(50) PRIMARY KEY,
+    id INT PRIMARY KEY,
     name VARCHAR(50),
     url VARCHAR(255)
 );
 
 CREATE TABLE themes_game (
-    checksum VARCHAR(50),
+    id INT,
     id_game INT,
-    PRIMARY KEY (id_game, checksum),
-    FOREIGN KEY (checksum) REFERENCES theme(checksum),
+    PRIMARY KEY (id_game, id),
+    FOREIGN KEY (id) REFERENCES theme(id),
     FOREIGN KEY (id_game) REFERENCES game(id_game)
 );
 
 CREATE TABLE player_perspective (
-    checksum VARCHAR(50) PRIMARY KEY,
+    id INT PRIMARY KEY,
     name VARCHAR(50),
     url VARCHAR(255)
 );
 
 CREATE TABLE player_perspective_game (
-    checksum VARCHAR(50),
+    id INT,
     id_game INT,
-    PRIMARY KEY (id_game, checksum),
-    FOREIGN KEY (checksum) REFERENCES player_perspective(checksum),
+    PRIMARY KEY (id_game, id),
+    FOREIGN KEY (id) REFERENCES player_perspective(id),
     FOREIGN KEY (id_game) REFERENCES game(id_game)
 );
 
 CREATE TABLE game_engine (
-    checksum VARCHAR(50) PRIMARY KEY,
+    id INT PRIMARY KEY,
     name VARCHAR(50),
     url VARCHAR(255),
     description VARCHAR(255)
 );
 
 CREATE TABLE game_engine_platform (
-    checksum_engine VARCHAR(50),
-    checksum_platform VARCHAR(50),
-    PRIMARY KEY (checksum_platform, checksum_engine),
-    FOREIGN KEY (checksum_engine) REFERENCES game_engine(checksum),
-    FOREIGN KEY (checksum_platform) REFERENCES platform(checksum)
+    id_engine INT,
+    id_platform INT,
+    PRIMARY KEY (id_platform, id_engine),
+    FOREIGN KEY (id_engine) REFERENCES game_engine(id),
+    FOREIGN KEY (id_platform) REFERENCES platform(id)
 );
 
 CREATE TABLE game_engine_game (
-    checksum VARCHAR(50),
+    id INT,
     id_game INT,
-    PRIMARY KEY (checksum, id_game),
-    FOREIGN KEY (checksum) REFERENCES game_engine(checksum),
+    PRIMARY KEY (id, id_game),
+    FOREIGN KEY (id) REFERENCES game_engine(id),
     FOREIGN KEY (id_game) REFERENCES game(id_game)
 );
 
 CREATE TABLE company (
-    checksum VARCHAR(50) PRIMARY KEY,
+    id INT PRIMARY KEY,
     country VARCHAR(50),
     description VARCHAR(255),
     name VARCHAR(50),
@@ -188,17 +188,17 @@ CREATE TABLE company (
 );
 
 CREATE TABLE company_game (
-    checksum VARCHAR(50),
+    id INT,
     id_game INT,
-    PRIMARY KEY (checksum, id_game),
-    FOREIGN KEY (checksum) REFERENCES company(checksum),
+    PRIMARY KEY (id, id_game),
+    FOREIGN KEY (id) REFERENCES company(id),
     FOREIGN KEY (id_game) REFERENCES game(id_game)
 );
 
 CREATE TABLE game_engine_company (
-    checksum_engine VARCHAR(50),
-    checksum_company VARCHAR(50),
-    PRIMARY KEY( checksum_company, checksum_engine),
-    FOREIGN KEY (checksum_engine) REFERENCES game_engine(checksum),
-    FOREIGN KEY (checksum_company) REFERENCES company(checksum)
+    id_engine INT,
+    id_company INT,
+    PRIMARY KEY( id_company, id_engine),
+    FOREIGN KEY (id_engine) REFERENCES game_engine(id),
+    FOREIGN KEY (id_company) REFERENCES company(id)
 );
