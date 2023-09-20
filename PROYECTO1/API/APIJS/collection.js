@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import { getConnection, querys, sql } from "./db/index.js"
-var num = 1;
+var num = 4000;
 const pool = await getConnection();
 const peticion = () => {
 fetch(
@@ -8,8 +8,8 @@ fetch(
         { method: 'POST',
         headers: {
             'Accept': 'application/json',
-            'Client-ID': 'etamy4nugfs5ujw3jaiond9wlw77j1',
-            'Authorization': 'Bearer rrnmuct08yldcqtj2p9y41y6u9tp9w',
+            'Client-ID': 'wvy8k49cvhyd1yywjd9ur7hkpl7zoc',
+            'Authorization': 'Bearer jk61hgwkq8sagb0fupl2h78assu74j',
         },
         body: `fields *; where id = (${num},${num+1},${num+2},${num+3},${num+4},${num+5},${num+6},${num+7},${num+8},${num+9}); sort id asc;`
         //body: "fields *; limit 1; sort rating desc;"
@@ -64,4 +64,4 @@ fetch(
     });        
 }
 
-setInterval(() => peticion(), 5000)
+setInterval(() => peticion(), 5000);

@@ -4,7 +4,7 @@ var num = 1;
 const pool = await getConnection();
 const peticion = () => {
 fetch(
-    "https://api.igdb.com/v4/release_dates",
+    "https://api.igdb.com/v4/genres",
     { method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -37,18 +37,18 @@ fetch(
                   .input("id", sql.Int, data[i].id)
                   .input("name", sql.VarChar, data[i].name )
                   .input("url", sql.VarChar, data[i].url)
-                  .input("id", sql.Int, data[i].id)
-                  .input("name", sql.VarChar, data[i].name )
-                  .input("url", sql.VarChar, data[i].url)
-                  .query(querys.addCollection);
+                  .query(querys.addGenre);
             
                 console.log("agregado correctamente");
             }
         }
+ 
         
       } catch (error) {
+
         console.log(500);
         console.log(error.message)
+
       }
 
 })
@@ -56,3 +56,5 @@ fetch(
     console.error(err);
 });
 }
+
+setInterval(() => peticion(), 5000);
