@@ -1,8 +1,8 @@
 import fetch from 'node-fetch';
 import { getConnection, querys, sql } from "./db/index.js"
 var num = 1;
-
-const peticion =  () => {
+const pool = await getConnection();
+const peticion = () => {
 fetch(
         "https://api.igdb.com/v4/collections",
         { method: 'POST',
@@ -22,26 +22,39 @@ fetch(
     })
     .then(async data =>  {
         // console.log(data[0]); // Ahora aquí deberías ver los datos deserializados
-        console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        console.log(data[0].id); // Ahora aquí deberías ver los datos deserializados
-        console.log(data[0].name); // Ahora aquí deberías ver los datos deserializados
-        console.log(data[0].url); // Ahora aquí deberías ver los datos deserializados
-        console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        
         num = num + 10;
+        console.log("NUM: ",num)
 
         try {
-            const pool = await getConnection();
-            await pool.request()
-              .input("id", sql.Int, data[0].id)
-              .input("name", sql.VarChar, data[0].name )
-              .input("url", sql.VarChar, data[0].url)
-              .query(querys.addCollection);
-        
-            res.json("agregado correctamente");
+            for(let i = 0; i < 10; i++){
+                console.log()
+                if(data[i] == undefined){
+                    console.log("------------ERROR---INICIO-------")
+                    console.log(data[i])
+                    console.log("-------------ERROR  FIN---------")
+                }else{
+                    // console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++")
+                    // console.log(data[0].id); // Ahora aquí deberías ver los datos deserializados
+                    // console.log(data[0].name); // Ahora aquí deberías ver los datos deserializados
+                    // console.log(data[0].url); // Ahora aquí deberías ver los datos deserializados
+                    // console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++")
+                    await pool.request()
+                      .input("id", sql.Int, data[i].id)
+                      .input("name", sql.VarChar, data[i].name )
+                      .input("url", sql.VarChar, data[i].url)
+                      .query(querys.addCollection);
+                
+                    console.log("agregado correctamente");
+                }
+            }
+            // res.json("agregado correctamente");
             
           } catch (error) {
-            res.status(500);
-            res.send(error.message);  
+            // res.status(500);
+            console.log(500);
+            console.log(error.message)
+            // res.send(error.message);  
           }
 
 
