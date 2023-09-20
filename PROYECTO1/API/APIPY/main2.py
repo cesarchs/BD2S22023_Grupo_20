@@ -2,8 +2,8 @@ import requests
 
 url = 'https://id.twitch.tv/oauth2/token'
 payload = {
-    'client_id': 'wvy8k49cvhyd1yywjd9ur7hkpl7zoc',
-    'client_secret': 'atp5j3p2qsiracs1o2joqeg0efchnt',
+    'client_id': 'rf5rz2l7mhh48x5q4dyqyuiikr3dyg',
+    'client_secret': 'q3zwwneft7z3i4eqrmkp1r5s4q80ff',
     'grant_type': 'client_credentials'
 }
 

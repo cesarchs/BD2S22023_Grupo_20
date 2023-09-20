@@ -1,4 +1,13 @@
+Cesar
 Client ID
 wvy8k49cvhyd1yywjd9ur7hkpl7zoc
 Client Secret
 atp5j3p2qsiracs1o2joqeg0efchnt
+
+Oscar
+Client ID
+rf5rz2l7mhh48x5q4dyqyuiikr3dyg
+Client Secret
+q3zwwneft7z3i4eqrmkp1r5s4q80ff
+Auth
+1hkmbgavqo7ztv6wvc71gts84u4z1q

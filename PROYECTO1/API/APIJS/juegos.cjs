@@ -1,3 +1,5 @@
+import fetch from 'node-fetch';
+
 fetch(
     "https://api.igdb.com/v4/games",
     { method: 'POST',

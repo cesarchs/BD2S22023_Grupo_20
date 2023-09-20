@@ -19,7 +19,7 @@ CREATE TABLE game(
     aggregated_rating VARCHAR(50),
     local_rating VARCHAR(50),
     storyline VARCHAR(255),
-    collections VARCHAR(50),
+    collections INT,
     FOREIGN KEY (collections) REFERENCES collections(id)
 );
 
@@ -41,7 +41,7 @@ CREATE TABLE game_localization (
     id INT PRIMARY KEY,
     game INT,
     name VARCHAR(50),
-    region VARCHAR(50),
+    region INT,
     FOREIGN KEY (game) REFERENCES game(id_game),
     FOREIGN KEY (region) REFERENCES region(id)
 );
@@ -113,7 +113,7 @@ CREATE TABLE platform (
     platform_enum INT,
     generation VARCHAR(50),
     name VARCHAR(50),
-    platform_family VARCHAR(50),
+    platform_family INT,
     summary VARCHAR(255),
     url VARCHAR(255),
     FOREIGN KEY (platform_enum) REFERENCES platform_enum(id),
