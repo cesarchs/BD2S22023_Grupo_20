@@ -8,8 +8,8 @@ fetch(
         { method: 'POST',
         headers: {
             'Accept': 'application/json',
-            'Client-ID': 'etamy4nugfs5ujw3jaiond9wlw77j1',
-            'Authorization': 'Bearer rrnmuct08yldcqtj2p9y41y6u9tp9w',
+            'Client-ID': 'rf5rz2l7mhh48x5q4dyqyuiikr3dyg',
+            'Authorization': 'Bearer 1hkmbgavqo7ztv6wvc71gts84u4z1q',
         },
         body: `fields *; where id = (${num},${num+1},${num+2},${num+3},${num+4},${num+5},${num+6},${num+7},${num+8},${num+9}); sort id asc;`
         //body: "fields *; limit 1; sort rating desc;"
