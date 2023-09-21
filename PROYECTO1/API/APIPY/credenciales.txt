@@ -11,3 +11,11 @@ Client Secret
 q3zwwneft7z3i4eqrmkp1r5s4q80ff
 Auth
 1hkmbgavqo7ztv6wvc71gts84u4z1q
+
+BRYAN 
+Client ID
+etamy4nugfs5ujw3jaiond9wlw77j1
+Client Secret
+3tyiayb28t0ckwtcxebdlpbo82sfkk
+Auth
+rrnmuct08yldcqtj2p9y41y6u9tp9w
