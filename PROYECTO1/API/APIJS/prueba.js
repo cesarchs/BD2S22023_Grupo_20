@@ -6,7 +6,7 @@ fetch(
         'Client-ID': 'wvy8k49cvhyd1yywjd9ur7hkpl7zoc',
         'Authorization': 'Bearer jk61hgwkq8sagb0fupl2h78assu74j',
       },
-      body: "fields *;"
+      body: "fields *; sort id desc;"
   })
   .then(response => {
     if (!response.ok) {
