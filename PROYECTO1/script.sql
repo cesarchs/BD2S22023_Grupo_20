@@ -69,7 +69,7 @@ CREATE TABLE game_mode_game (
     id INT,
     id_game INT,
     PRIMARY KEY (id, id_game),
-    FOREIGN KEY (id) REFERENCES genre(id),
+    FOREIGN KEY (id) REFERENCES game_mode(id),
     FOREIGN KEY (id_game) REFERENCES game(id_game)
 );
 

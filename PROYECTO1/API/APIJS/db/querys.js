@@ -12,7 +12,10 @@ export const querys = {
     addPlayer_Perspective_Game: "INSERT INTO player_perspective_game (id, id_game) VALUES(@id, @id_game);",
     addThemes_Game: "INSERT INTO themes_game (id, id_game) VALUES(@id, @id_game);",
     addPlatform_Game: "INSERT INTO platform_game (id, id_game) VALUES(@id, @id_game);",
-    addCompany_Game: "INSERT INTO platform_game (id, id_game) VALUES(@id, @id_game);",
+
+    addengine: "INSERT INTO game_engine (id, name, url, description) VALUES(@id, @name, @url, @description);",
+    addengine_company: "INSERT INTO game_engine_company (id_engine, id_company) VALUES(@id_engine, @id_company);",
+    addengine_platform: "INSERT INTO game_engine_platform (id_engine, id_platform) VALUES(@id_engine, @id_platform);",
 
 
 };

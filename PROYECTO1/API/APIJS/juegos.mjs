@@ -8,7 +8,7 @@ fetch(
         'Client-ID': 'wvy8k49cvhyd1yywjd9ur7hkpl7zoc',
         'Authorization': 'Bearer jk61hgwkq8sagb0fupl2h78assu74j',
       },
-      body: "fields id,name; where id= 8;"
+      body: "fields *; where id= 85;"
   })
   .then(response => {
     if (!response.ok) {

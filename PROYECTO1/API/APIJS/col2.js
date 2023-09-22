@@ -1,13 +1,13 @@
 import fetch from 'node-fetch';
 fetch(
-    "https://api.igdb.com/v4/release_dates",
+    "https://api.igdb.com/v4/game_engines",
     { method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Client-ID': 'wvy8k49cvhyd1yywjd9ur7hkpl7zoc',
         'Authorization': 'Bearer jk61hgwkq8sagb0fupl2h78assu74j',
       },
-      body: "fields *; sort id asc;"
+      body: "fields *; where id = 43;"
   })
   .then(response => {
     if (!response.ok) {
