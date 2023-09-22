@@ -2,7 +2,7 @@
 import fetch from 'node-fetch';
 import { getConnection, querys, sql } from "./db/index.js";
 
-var num = 1;
+var num = 10053;
 const pool = await getConnection();
 
 async function peticion() {
@@ -16,7 +16,7 @@ async function peticion() {
                     'Client-ID': 'rf5rz2l7mhh48x5q4dyqyuiikr3dyg',
                     'Authorization': 'Bearer 1hkmbgavqo7ztv6wvc71gts84u4z1q',
                 },
-                body: `fields *; where id = (${num},${num+1},${num+2},${num+3},${num+4},${num+5},${num+6},${num+7},${num+8},${num+9}); sort id asc;`
+                body: `fields genres, game_modes, franchises, game_engines, player_perspectives, themes, platforms, name, first_release_date, summary, rating, aggregated_rating,  total_rating, storyline, collection, id; where id = (${num},${num+1},${num+2},${num+3},${num+4},${num+5},${num+6},${num+7},${num+8},${num+9}); sort id asc;`
             }
         );
 
@@ -34,7 +34,7 @@ async function peticion() {
                     console.log("------------ERROR---INICIO-------")
                     // console.log(data[i])
                     console.log(num+i -10)
-                    console.log("------------ERROR---FIN-------")
+                    // console.log("------------ERROR---FIN-------")
                 }else{
                     if(data[i].genres == undefined){
                         data[i].genres = [];
@@ -120,13 +120,7 @@ async function peticion() {
                         catch(error){
                         }
                     } 
-                    for (const element of data[i].game_engines) {
-                        try{
-                            await game_engines(data,i,element);
-                        }
-                        catch(error){
-                        }
-                    } 
+                    
                     for (const element of data[i].player_perspectives) {
                         try{
                             await player_perspectives(data,i,element);
@@ -153,7 +147,13 @@ async function peticion() {
                         }
                     } 
                     
-                  
+                    // for (const element of data[i].game_engines) {
+                    //     try{
+                    //         await game_engines(data,i,element);
+                    //     }
+                    //     catch(error){
+                    //     }
+                    // } 
            
 
                     console.log(data[i].id," agregado correctamente");
@@ -164,7 +164,7 @@ async function peticion() {
         console.error("Error en la petición:", error);
     } finally {
         // Planificar la siguiente ejecución después de 3 segundos
-        setTimeout(peticion, 3000);
+        setTimeout(peticion, 2000);
     }
 }
 
@@ -179,7 +179,7 @@ async function generos(data,i,element) {
             .input("id", sql.Int, element)                      
             .query(querys.addGenre_Game) 
             .then( async () =>  {
-                console.log("Generos con juegos agregados")
+                // console.log("Generos con juegos agregados")
                 resolve(true)
             });
         }
@@ -199,7 +199,7 @@ async function game_modes(data,i,element) {
                      .input("id", sql.Int, element)                      
                      .query(querys.addGame_Mode_Game) 
                      .then( async () =>  {  
-                        console.log("Modo de Juegos con juegos agregados")
+                        // console.log("Modo de Juegos con juegos agregados")
                         resolve(true)
             });
                  }
@@ -219,7 +219,7 @@ async function franchises_game(data,i,element) {
                     .input("id", sql.Int, element)                      
                     .query(querys.addFranchise_Game) 
                      .then( async () =>  {  
-                        console.log("franquicias con juegos agregados")
+                        // console.log("franquicias con juegos agregados")
                         resolve(true)
             });
                  }
@@ -240,7 +240,7 @@ async function game_engines(data,i,element) {
                     .input("id", sql.Int, element)                      
                     .query(querys.addGame_Engine_Game) 
                      .then( async () =>  {  
-                        console.log("Game Engine con juegos agregados")
+                        // console.log("Game Engine con juegos agregados")
                         resolve(true)
             });
                  }
@@ -260,7 +260,7 @@ async function player_perspectives(data,i,element) {
 			.input("id", sql.Int, element)                      
 			.query(querys.addPlayer_Perspective_Game)   
 			.then( async () =>  {  
-                console.log("Perspectiva con juegos agregados")
+                // console.log("Perspectiva con juegos agregados")
 				resolve(true)
         	});
 		}
@@ -280,7 +280,7 @@ async function themes(data,i,element) {
 			.input("id", sql.Int, element)                      
 			.query(querys.addThemes_Game)   
 			.then( async () =>  {  
-                console.log("Tema con juegos agregados")
+                // console.log("Tema con juegos agregados")
 				resolve(true)
         	});
 		}
@@ -301,7 +301,7 @@ async function platforms(data,i,element) {
 			.input("id", sql.Int, element)                      
 			.query(querys.addPlatform_Game)   
 			.then( async () =>  {  
-                console.log("Plataforma con juegos agregados")
+                // console.log("Plataforma con juegos agregados")
 				resolve(true)
         	});
 		}
