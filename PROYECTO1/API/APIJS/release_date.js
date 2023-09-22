@@ -6,7 +6,7 @@ fetch(
         'Client-ID': 'wvy8k49cvhyd1yywjd9ur7hkpl7zoc',
         'Authorization': 'Bearer jk61hgwkq8sagb0fupl2h78assu74j',
       },
-      body: "fields category,checksum,created_at,date,game,human,m,platform,region,status,updated_at,y; where id = 133607;"
+      body: "fields category,checksum,created_at,date,game,human,m,platform,region,status,updated_at,y; where id =  ;"
   })
   .then(response => {
     if (!response.ok) {

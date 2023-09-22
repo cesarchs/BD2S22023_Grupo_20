@@ -1,17 +1,17 @@
 import fetch from 'node-fetch';
-
 fetch(
-    "https://api.igdb.com/v4/games",
+    "https://api.igdb.com/v4/release_dates",
     { method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Client-ID': 'wvy8k49cvhyd1yywjd9ur7hkpl7zoc',
         'Authorization': 'Bearer jk61hgwkq8sagb0fupl2h78assu74j',
       },
-      body: "fields id,name; where id= 8;"
+      body: "fields *; sort id asc;"
   })
   .then(response => {
     if (!response.ok) {
+        console.log("REPONSE",response)
         throw new Error(`Error HTTP: ${response.status}`);
     }
     return response.json();
