@@ -1,5 +1,5 @@
 fetch(
-    "https://api.igdb.com/v4/games",
+    "https://api.igdb.com/v4/release_dates",
     { method: 'POST',
       headers: {
         'Accept': 'application/json',
