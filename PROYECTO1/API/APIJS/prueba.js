@@ -1,10 +1,10 @@
 fetch(
-    "https://api.igdb.com/v4/release_dates",
+    "https://api.igdb.com/v4/languages",
     { method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'Client-ID': 'wvy8k49cvhyd1yywjd9ur7hkpl7zoc',
-        'Authorization': 'Bearer jk61hgwkq8sagb0fupl2h78assu74j',
+        'Client-ID': 'rf5rz2l7mhh48x5q4dyqyuiikr3dyg',
+        'Authorization': 'Bearer 1hkmbgavqo7ztv6wvc71gts84u4z1q',
       },
       body: "fields *; sort id desc;"
   })
