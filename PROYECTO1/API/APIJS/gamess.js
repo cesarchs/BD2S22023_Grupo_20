@@ -2,7 +2,7 @@
 import fetch from 'node-fetch';
 import { getConnection, querys, sql } from "./db/index.js";
 
-var num = 10053;
+var num = 35775;
 const pool = await getConnection();
 
 async function peticion() {
@@ -164,7 +164,7 @@ async function peticion() {
         console.error("Error en la petición:", error);
     } finally {
         // Planificar la siguiente ejecución después de 3 segundos
-        setTimeout(peticion, 2000);
+        setTimeout(peticion, 1000);
     }
 }
 

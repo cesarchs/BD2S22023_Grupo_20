@@ -1,17 +1,17 @@
 import fetch from 'node-fetch';
 import { getConnection, querys, sql } from "./db/index.js"
-var num = 22;
+var num = 169;
 const pool = await getConnection();
 const peticion = () => {
 fetch(
-        "https://api.igdb.com/v4/game_localizations",
+        "https://api.igdb.com/v4/alternative_names",
         { method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Client-ID': 'rf5rz2l7mhh48x5q4dyqyuiikr3dyg',
             'Authorization': 'Bearer 1hkmbgavqo7ztv6wvc71gts84u4z1q',
         },
-        body: `fields id, game, name, region; where id = (${num},${num+1},${num+2},${num+3},${num+4},${num+5},${num+6},${num+7},${num+8},${num+9}); sort id asc;`
+        body: `fields *; where id = (${num},${num+1},${num+2},${num+3},${num+4},${num+5},${num+6},${num+7},${num+8},${num+9}); sort id asc;`
         //body: "fields *; limit 1; sort rating desc;"
     })
     .then(response => {
@@ -42,10 +42,9 @@ fetch(
                     await pool.request()
                       .input("id", sql.Int, data[i].id)
                       .input("id_game", sql.Int, data[i].game)
+                      .input("comment", sql.VarChar, data[i].comment)
                       .input("name", sql.VarChar, data[i].name)
-                      .input("id_region", sql.Int, data[i].region)
-                      .query(querys.addGame_Localization);
-                
+                      .query(querys.addAlternative_Name);
                     console.log("agregado correctamente");
                 }
             }

@@ -1,13 +1,13 @@
 import fetch from 'node-fetch';
 fetch(
-    "https://api.igdb.com/v4/player_perspectives",
+    "https://api.igdb.com/v4/games",
     { method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Client-ID': 'wvy8k49cvhyd1yywjd9ur7hkpl7zoc',
         'Authorization': 'Bearer jk61hgwkq8sagb0fupl2h78assu74j',
       },
-      body: "fields *;"
+      body: "fields *; where id = 1029; sort id asc;" 
   })
   .then(response => {
     if (!response.ok) {

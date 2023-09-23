@@ -13,6 +13,12 @@ export const querys = {
     addThemes_Game: "INSERT INTO themes_game (id, id_game) VALUES(@id, @id_game);",
     addPlatform_Game: "INSERT INTO platform_game (id, id_game) VALUES(@id, @id_game);",
 
+    addAlternative_Name: "INSERT INTO alternative_name (id, id_game, comment, name) VALUES(@id, @id_game, @comment, @name);",
+
+    addGame_Localization: "INSERT INTO game_localization (id, id_game, name, id_region) VALUES(@id, @id_game, @name, @id_region);",
+    
+    addInvolved_Company: "INSERT INTO involved_company (id, company, game, developer, porting, publisher, supporting) VALUES(@id, @company, @game, @developer, @porting, @publisher, @supporting);",
+
     addengine: "INSERT INTO game_engine (id, name, url, description) VALUES(@id, @name, @url, @description);",
     addengine_company: "INSERT INTO game_engine_company (id_engine, id_company) VALUES(@id_engine, @id_company);",
     addengine_platform: "INSERT INTO game_engine_platform (id_engine, id_platform) VALUES(@id_engine, @id_platform);",
