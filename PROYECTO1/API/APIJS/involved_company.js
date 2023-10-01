@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import { getConnection, querys, sql } from "./db/index.js"
-var num = 1;
+var num = 126574;
 const pool = await getConnection();
 const peticion = () => {
 fetch(

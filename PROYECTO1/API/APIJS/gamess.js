@@ -2,7 +2,7 @@
 import fetch from 'node-fetch';
 import { getConnection, querys, sql } from "./db/index.js";
 
-var num = 35775;
+var num = 46433;
 const pool = await getConnection();
 
 async function peticion() {

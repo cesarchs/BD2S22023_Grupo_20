@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 fetch(
-    "https://api.igdb.com/v4/involved_companies/count",
+    "https://api.igdb.com/v4/games/count",
     { method: 'POST',
       headers: {
         'Accept': 'application/json',
