@@ -7,4 +7,5 @@ export const querys = {
     addLanguageSupport: "INSERT INTO language_support (id, id_game, id_language, language_support_type) VALUES(@id, @id_game, @id_language, @language_support_type);",
     addlanguagesupporttype: "INSERT INTO language_support_type (id, name) VALUES(@id, @name);",
     addLanguage: "INSERT INTO language (id, name, native_name, locale) VALUES(@id, @name, @native_name, @locale);",
+    addrelease_date: "INSERT INTO release_date (id, date, human, platform, region, status, m, y, id_game) VALUES(@id, @date, @human, @platform, @region, @status, @m, @y, @id_game);",
 };
