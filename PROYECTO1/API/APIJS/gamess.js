@@ -2,7 +2,7 @@
 import fetch from 'node-fetch';
 import { getConnection, querys, sql } from "./db/index.js";
 
-var num = 46433;
+var num = 148911;
 const pool = await getConnection();
 
 async function peticion() {
@@ -13,8 +13,8 @@ async function peticion() {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
-                    'Client-ID': 'rf5rz2l7mhh48x5q4dyqyuiikr3dyg',
-                    'Authorization': 'Bearer 1hkmbgavqo7ztv6wvc71gts84u4z1q',
+                    'Client-ID': 'etamy4nugfs5ujw3jaiond9wlw77j1',
+                    'Authorization': 'Bearer rrnmuct08yldcqtj2p9y41y6u9tp9w',
                 },
                 body: `fields genres, game_modes, franchises, game_engines, player_perspectives, themes, platforms, name, first_release_date, summary, rating, aggregated_rating,  total_rating, storyline, collection, id; where id = (${num},${num+1},${num+2},${num+3},${num+4},${num+5},${num+6},${num+7},${num+8},${num+9}); sort id asc;`
             }
