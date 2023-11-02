@@ -3,16 +3,33 @@
 GET http://localhost:8000/
 
 ### ver todas las consultas 
-GET http://localhost:8000/api/users
+GET http://localhost:8000/api/pelis
+
+### ver todas las pelis por id
+GET http://localhost:8000/api/peli/1
 
 ### Crear una peli
-
-POST http://localhost:8000/api/user
+POST http://localhost:8000/api/peli
 Content-Type: application/json
     
     {
-        "id": "1",
-        "nombre": "peli1"
+         "id": 1,
+        "Titulo": "Breve historia del tiempo",
+        "Autor": "Stephen Hawking",
+        "Descripcion": "La explicación del universo para todos.",
+        "FechaDePublicacion": "1988-04-01",
+        "Calificacion": "4",
+        "Stock": "25",
+        "Categoria": "No Ficción",
+        "Precio": "19.99",
+        "autor": {
+            "id": 17,
+            "nombre": "Stephen Hawking"
+        },
+        "categoria": {
+            "id": 1,
+            "nombre": "No Ficción"
+        }
     }
 
 ### ELIMINAR 
