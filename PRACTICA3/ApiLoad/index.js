@@ -6,7 +6,11 @@ import { test, insert, listAllPeliculas, SearchGenrePelicula, ListAllCalsificati
 import {getallPelis, SearchGYearPelicula } from './funcs/funcs2.js'
 
 
+import Consultas from './funcs/funcs3.js';
+
 var jsonParser = bodyParser.json()
+
+app.use(express.json())
  
 // create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -29,6 +33,8 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
+
+app.use('/', Consultas)
 
 app.get('/insert-libros', jsonParser,(req, res) => test(req, res));
 

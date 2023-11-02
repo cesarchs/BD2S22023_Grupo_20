@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb';
 
-const uri = 'mongodb://127.0.0.1:27017/bases2';
+const uri = 'mongodb://127.0.0.1:27017/librosprac3';
 
 const client = new MongoClient(uri, { useNewUrlParser: true });
 
@@ -14,7 +14,7 @@ export async function conectarBaseDeDatos() {
 }
 
 export function obtenerColeccion(coleccion) {
-  return client.db('bases2').collection(coleccion);
+  return client.db('librosprac3').collection(coleccion);
 }
 
 export async function cerrarConexion() {
