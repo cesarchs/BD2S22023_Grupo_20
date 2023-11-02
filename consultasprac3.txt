@@ -1,0 +1,143 @@
+-- Consulta 1 - O
+1. Listar todos los libros disponibles
+db.libro.find
+	(
+		{ Stock: 
+			{ $gt: 0 } 
+		}
+	).sort(
+		{id:1}
+	)
+
+-- Consulta 2 - O
+2. Encontrar libros por Categoria (por ejemplo, Ciencia Ficción):
+db.libro.find
+	(
+		{"categoria.nombre": 
+			{$regex: /^Ficcion$/i } 
+		}
+	).sort(
+		{id:1}
+	)
+
+-- Consulta 3 - O
+3. Buscar libros con un autor específico
+db.libro.find
+	(
+		{"autor.nombre": 
+			{$regex: /^Stephen Hawking$/ , $options:'i'}
+		}
+	)
+
+-- Consulta 4 - O
+4. Mostrar los libros ordenados por calificación promedio (de mayor a menor):
+db.libro.find().sort
+	(
+		{ Calificacion: -1 }
+	)
+
+-- Consulta 5 - O
+5. Encontrar libros con un precio inferior a 20.
+db.libro.find
+	(
+		{Precio: 
+			{$lt:20}
+		}
+	).sort(
+		{Precio: -1}
+	)
+
+-- Consulta 6 - O
+6. Buscar libros con una palabra clave en el título o descripción.
+db.libro.find
+	(
+		{
+			$or:
+				[
+					{Titulo:
+						{$regex:/ / ,$options:'i'}
+					},
+					{Descripcion:
+						{$regex:/ / ,$options:'i'}
+					}
+				]
+		}
+	)
+
+-- Consulta 7 - O
+7. Información de los 10 autores más caros (Suma del precio de todos sus libros)>
+db.libro.aggregate
+	(
+		[
+  			{$group: 
+  				{
+			      _id: "$autor.nombre",
+			      TotalPrecioLibros: { $sum: "$Precio" }
+		    	}
+		  	},
+		  	{$sort: 
+		  		{ TotalPrecioLibros: -1 }
+		  	},
+		  	{$limit: 10}
+		]
+	)
+
+-- Consulta 8 - O
+8. Obtener la cantidad de libros en stock para un libro específico:
+db.libro.aggregate
+	(
+		[
+			{$match:
+				{Titulo: 
+					{
+						$regex:/ /, $options:'i'
+					}
+				}
+			},
+			{$project:
+				{
+					_id:0,
+					Titulo:1,
+					Stock:1
+				}
+			}
+		]
+	)
+
+-- Consulta 9 - O
+9. Calcular el precio promedio de todos los libros:
+db.libro.aggregate
+	(
+		[
+			{
+				$group:{
+					_id:null,
+					PrecioPromedio:{$avg:"$Precio"}
+				}
+			}
+		]
+	)
+
+-- Consulta 10 - O
+10. Información de todas las categorías.
+db.libro.aggregate
+	(
+		[
+			{
+				$group:{
+					_id: "$categoria.nombre",
+					Conteodelibros: {$sum:1},
+					Libros: {
+						$push:{
+							Titulo:"$Titulo"
+						}
+					},
+					Autores: {
+						$push:{
+							Autor:"$autor.nombre"
+						}
+					}
+				}
+			}
+		]
+	)
