@@ -1,0 +1,39 @@
+﻿game_localization;PK__game_loc__3213E83F9B140048;CLUSTERED;id;27.9352226720648
+language;PK__language__3213E83F5081E596;CLUSTERED;id;0
+language_support;PK__language__3213E83F986287B9;CLUSTERED;id;15.4389060432289
+alternative_name;PK__alternat__3213E83FA02556D5;CLUSTERED;id;21.2445003142678
+release_date;PK__release___3213E83F9029F9ED;CLUSTERED;id;64.8960739030023
+genres_game;PK__genres_g__E2FBF18D158C1F86;CLUSTERED;id, id_game;98.2608695652174
+game_mode_game;PK__game_mod__E2FBF18D92F981CF;CLUSTERED;id, id_game;92.2693266832918
+franchise_game;PK__franchis__E2FBF18DEB9B95FA;CLUSTERED;id, id_game;98.6842105263158
+game_engine_game;PK__game_eng__E2FBF18D0A91134A;CLUSTERED;id, id_game;0
+player_perspective_game;PK__player_p__EDA0A5AF94D75AA4;CLUSTERED;id, id_game;73.7864077669903
+themes_game;PK__themes_g__EDA0A5AFA5A9784A;CLUSTERED;id, id_game;78.8968824940048
+platform_game;PK__platform__EDA0A5AF5A7629CE;CLUSTERED;id, id_game;76.9105691056911
+involved_company;PK__involved__3213E83FAB2E98B7;CLUSTERED;id;19.3822393822394
+language_support_type;PK__language__3213E83F83AD9750;CLUSTERED;id;0
+region;PK__region__3213E83FBEFFF352;CLUSTERED;id;0
+collections;PK__collecti__3213E83F00001AE5;CLUSTERED;id;6.57894736842105
+game;PK__game__0E819B2CEDEFCD6D;CLUSTERED;id_game;68.4095310263534
+game;PK__game__0E819B2CEDEFCD6D;CLUSTERED;id_game;0
+genre;PK__genre__3213E83F269E8E59;CLUSTERED;id;0
+game_mode;PK__game_mod__3213E83F34055F42;CLUSTERED;id;0
+franchise;PK__franchis__3213E83FB1F6498B;CLUSTERED;id;5.55555555555556
+platform_enum;PK__platform__3213E83F85C70781;CLUSTERED;id;0
+platform_family;PK__platform__3213E83F6B624FE7;CLUSTERED;id;0
+platform;PK__platform__3213E83F3DDC21D7;CLUSTERED;id;33.3333333333333
+release_date_region_enum;PK__release___3213E83F0AC7257B;CLUSTERED;id;0
+theme;PK__theme__3213E83FD95DBD7E;CLUSTERED;id;0
+platform_version_releasedate;NULL;HEAP;NULL;0
+player_perspective;PK__player_p__3213E83F65C45798;CLUSTERED;id;0
+version;NULL;HEAP;NULL;0
+game_engine;PK__game_eng__3213E83F11133AAF;CLUSTERED;id;14.2857142857143
+Platform_version_company;PK__Platform__3213E83FB49290B0;CLUSTERED;id;50
+game_engine_platform;PK__game_eng__742EB97A0F1661C0;CLUSTERED;id_engine, id_platform;0
+platform_releases;NULL;HEAP;NULL;0
+Platform_company;NULL;HEAP;NULL;0
+platform_version;PK__platform__3213E83F3F13272A;CLUSTERED;id;35.6164383561644
+platform_version;PK__platform__3213E83F3F13272A;CLUSTERED;id;0
+company;PK__company__3213E83FBCB25E21;CLUSTERED;id;21.7460317460317
+company;PK__company__3213E83FBCB25E21;CLUSTERED;id;0
+game_engine_company;PK__game_eng__6275C3CE37710490;CLUSTERED;id_engine, id_company;0

@@ -1,0 +1,400 @@
+[{
+  "_id": {
+    "$oid": "654352f97754bc10c3c6100e"
+  },
+  "id": 0,
+  "Titulo": "Matar a un ruiseñor",
+  "Descripcion": "La novela clásica ganadora del Pulitzer.",
+  "FechaDePublicacion": "1960-07-11",
+  "Calificacion": 5,
+  "Stock": 50,
+  "Precio": 19.99,
+  "autor": {
+    "id": 0,
+    "nombre": "Harper Lee"
+  },
+  "categoria": {
+    "id": 0,
+    "nombre": "Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c6100f"
+  },
+  "id": 1,
+  "Titulo": "Cien años de soledad",
+  "Descripcion": "Una obra maestra del realismo mágico.",
+  "FechaDePublicacion": "1967-05-30",
+  "Calificacion": 5,
+  "Stock": 75,
+  "Precio": 24.99,
+  "autor": {
+    "id": 1,
+    "nombre": "Gabriel García Márquez"
+  },
+  "categoria": {
+    "id": 0,
+    "nombre": "Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c61010"
+  },
+  "id": 2,
+  "Titulo": "1984",
+  "Descripcion": "Una visión distópica del futuro.",
+  "FechaDePublicacion": "1949-06-08",
+  "Calificacion": 4,
+  "Stock": 60,
+  "Precio": 14.99,
+  "autor": {
+    "id": 2,
+    "nombre": "George Orwell"
+  },
+  "categoria": {
+    "id": 0,
+    "nombre": "Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c61011"
+  },
+  "id": 3,
+  "Titulo": "El Gran Gatsby",
+  "Descripcion": "La historia de la alta sociedad en la década de 1920.",
+  "FechaDePublicacion": "1925-04-10",
+  "Calificacion": 4,
+  "Stock": 40,
+  "Precio": 16.99,
+  "autor": {
+    "id": 3,
+    "nombre": "F. Scott Fitzgerald"
+  },
+  "categoria": {
+    "id": 0,
+    "nombre": "Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c61012"
+  },
+  "id": 4,
+  "Titulo": "Matar a un elefante",
+  "Descripcion": "Un ensayo sobre la experiencia del autor en Birmania.",
+  "FechaDePublicacion": "1936-11-12",
+  "Calificacion": 3,
+  "Stock": 30,
+  "Precio": 10.99,
+  "autor": {
+    "id": 2,
+    "nombre": "George Orwell"
+  },
+  "categoria": {
+    "id": 1,
+    "nombre": "No Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c61013"
+  },
+  "id": 5,
+  "Titulo": "En el camino",
+  "Descripcion": "La novela que definió la Generación Beat.",
+  "FechaDePublicacion": "1957-09-05",
+  "Calificacion": 4,
+  "Stock": 45,
+  "Precio": 18.99,
+  "autor": {
+    "id": 4,
+    "nombre": "Jack Kerouac"
+  },
+  "categoria": {
+    "id": 0,
+    "nombre": "Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c61014"
+  },
+  "id": 6,
+  "Titulo": "Mujer en punto cero",
+  "Descripcion": "La historia de una prisionera egipcia.",
+  "FechaDePublicacion": "1975-03-01",
+  "Calificacion": 4,
+  "Stock": 20,
+  "Precio": 12.99,
+  "autor": {
+    "id": 5,
+    "nombre": "Nawal El Saadawi"
+  },
+  "categoria": {
+    "id": 0,
+    "nombre": "Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c61017"
+  },
+  "id": 9,
+  "Titulo": "Orgullo y prejuicio",
+  "Descripcion": "Una historia de amor y prejuicio en la Inglaterra del siglo XIX.",
+  "FechaDePublicacion": "1813-01-28",
+  "Calificacion": 5,
+  "Stock": 70,
+  "Precio": 22.99,
+  "autor": {
+    "id": 8,
+    "nombre": "Jane Austen"
+  },
+  "categoria": {
+    "id": 0,
+    "nombre": "Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c61018"
+  },
+  "id": 10,
+  "Titulo": "Don Quijote de la Mancha",
+  "Descripcion": "La aventura de un caballero y su fiel escudero.",
+  "FechaDePublicacion": "1605-01-16",
+  "Calificacion": 5,
+  "Stock": 90,
+  "Precio": 27.99,
+  "autor": {
+    "id": 9,
+    "nombre": "Miguel de Cervantes Saavedra"
+  },
+  "categoria": {
+    "id": 0,
+    "nombre": "Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c61019"
+  },
+  "id": 11,
+  "Titulo": "Ulises",
+  "Descripcion": "Un recorrido literario por un día en la vida de Leopold Bloom.",
+  "FechaDePublicacion": "1922-02-02",
+  "Calificacion": 4,
+  "Stock": 60,
+  "Precio": 19.99,
+  "autor": {
+    "id": 10,
+    "nombre": "James Joyce"
+  },
+  "categoria": {
+    "id": 0,
+    "nombre": "Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c6101a"
+  },
+  "id": 12,
+  "Titulo": "Matar a un mirlo dorado",
+  "Descripcion": "La secuela del clásico \"Matar a un ruiseñor\".",
+  "FechaDePublicacion": "2015-07-14",
+  "Calificacion": 4,
+  "Stock": 40,
+  "Precio": 16.99,
+  "autor": {
+    "id": 0,
+    "nombre": "Harper Lee"
+  },
+  "categoria": {
+    "id": 0,
+    "nombre": "Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c6101b"
+  },
+  "id": 13,
+  "Titulo": "Los juegos del hambre",
+  "Descripcion": "Un futuro distópico de lucha por la supervivencia.",
+  "FechaDePublicacion": "2008-09-14",
+  "Calificacion": 4,
+  "Stock": 55,
+  "Precio": 18.99,
+  "autor": {
+    "id": 11,
+    "nombre": "Suzanne Collins"
+  },
+  "categoria": {
+    "id": 0,
+    "nombre": "Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c6101c"
+  },
+  "id": 14,
+  "Titulo": "Rayuela",
+  "Descripcion": "Una novela experimental en la que el lector elige su propia lectura.",
+  "FechaDePublicacion": "1963-06-03",
+  "Calificacion": 5,
+  "Stock": 30,
+  "Precio": 15.99,
+  "autor": {
+    "id": 12,
+    "nombre": "Julio Cortázar"
+  },
+  "categoria": {
+    "id": 0,
+    "nombre": "Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c6101d"
+  },
+  "id": 15,
+  "Titulo": "El nombre de la rosa",
+  "Descripcion": "Un misterio en una abadía medieval.",
+  "FechaDePublicacion": "1980-09-29",
+  "Calificacion": 5,
+  "Stock": 35,
+  "Precio": 22.99,
+  "autor": {
+    "id": 13,
+    "nombre": "Umberto Eco"
+  },
+  "categoria": {
+    "id": 0,
+    "nombre": "Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c6101e"
+  },
+  "id": 16,
+  "Titulo": "Código Da Vinci",
+  "Descripcion": "Una conspiración que podría cambiar la historia del cristianismo.",
+  "FechaDePublicacion": "2003-03-18",
+  "Calificacion": 3,
+  "Stock": 65,
+  "Precio": 25.99,
+  "autor": {
+    "id": 14,
+    "nombre": "Dan Brown"
+  },
+  "categoria": {
+    "id": 0,
+    "nombre": "Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c6101f"
+  },
+  "id": 17,
+  "Titulo": "Los hombres me explican cosas",
+  "Descripcion": "Ensayos feministas sobre la experiencia de las mujeres.",
+  "FechaDePublicacion": "2014-05-10",
+  "Calificacion": 5,
+  "Stock": 40,
+  "Precio": 14.99,
+  "autor": {
+    "id": 15,
+    "nombre": "Rebecca Solnit"
+  },
+  "categoria": {
+    "id": 1,
+    "nombre": "No Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c61020"
+  },
+  "id": 18,
+  "Titulo": "Sapiens: De animales a dioses",
+  "Descripcion": "Una historia de la humanidad.",
+  "FechaDePublicacion": "2011-02-10",
+  "Calificacion": 5,
+  "Stock": 75,
+  "Precio": 26.99,
+  "autor": {
+    "id": 16,
+    "nombre": "Yuval Noah Harari"
+  },
+  "categoria": {
+    "id": 1,
+    "nombre": "No Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c61021"
+  },
+  "id": 19,
+  "Titulo": "Breve historia del tiempo",
+  "Descripcion": "La explicación del universo para todos.",
+  "FechaDePublicacion": "1988-04-01",
+  "Calificacion": 4,
+  "Stock": 25,
+  "Precio": 19.99,
+  "autor": {
+    "id": 17,
+    "nombre": "Stephen Hawking"
+  },
+  "categoria": {
+    "id": 1,
+    "nombre": "No Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c61015"
+  },
+  "id": 7,
+  "Titulo": "El camino",
+  "Descripcion": "Una historia de aventuras en el Yukón.",
+  "FechaDePublicacion": "1903-09-12",
+  "Calificacion": 4,
+  "Stock": 55,
+  "Precio": 17.99,
+  "autor": {
+    "id": 6,
+    "nombre": "Jack London"
+  },
+  "categoria": {
+    "id": 0,
+    "nombre": "Ficción"
+  }
+},
+{
+  "_id": {
+    "$oid": "654352f97754bc10c3c61016"
+  },
+  "id": 8,
+  "Titulo": "Crimen y castigo",
+  "Descripcion": "La lucha de un estudiante contra la moralidad.",
+  "FechaDePublicacion": "1866-01-12",
+  "Calificacion": 5,
+  "Stock": 35,
+  "Precio": 21.99,
+  "autor": {
+    "id": 7,
+    "nombre": "Fyodor Dostoevsky"
+  },
+  "categoria": {
+    "id": 0,
+    "nombre": "Ficción"
+  }
+}]

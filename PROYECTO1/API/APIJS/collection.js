@@ -10,6 +10,7 @@ fetch(
             'Accept': 'application/json',
             'Client-ID': 'wvy8k49cvhyd1yywjd9ur7hkpl7zoc',
             'Authorization': 'Bearer jk61hgwkq8sagb0fupl2h78assu74j',
+
         },
         body: `fields *; where id = (${num},${num+1},${num+2},${num+3},${num+4},${num+5},${num+6},${num+7},${num+8},${num+9}); sort id asc;`
         //body: "fields *; limit 1; sort rating desc;"
