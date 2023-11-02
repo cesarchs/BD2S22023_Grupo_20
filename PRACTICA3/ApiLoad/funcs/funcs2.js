@@ -1,4 +1,4 @@
-import { deleteUserById, getUserById, readAllUsers } from './dynamofuncs.js'
+import {readAllUsers,searchbyYear } from './dynamofuncs2.js'
 
 export  async function  getallPelis (req, res){
 
@@ -15,4 +15,17 @@ export  async function  getallPelis (req, res){
         console.error('Error al conectar a MongoDB:', error);
     }
     
+}
+
+
+export async function SearchGYearPelicula(req, res) {
+    console.log(req.params.FechaDeEstreno)
+    try {
+        const data = await searchbyYear(req.params.FechaDeEstreno).then((data) => {
+            console.log(data)
+            res.send(data)
+        })        
+    } catch (error) {
+        res.status(500).json(error)
+    }
 }

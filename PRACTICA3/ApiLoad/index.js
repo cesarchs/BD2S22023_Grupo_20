@@ -3,6 +3,7 @@ const app = express();
 const PORT = 4040;
 import bodyParser from'body-parser'
 import { test, insert, listAllPeliculas, SearchGenrePelicula, ListAllCalsificationR, ListarDirigidasDirector, ListarPrecioBajo15} from './funcs/funcs.js'
+import {getallPelis, SearchGYearPelicula } from './funcs/funcs2.js'
 
 var jsonParser = bodyParser.json()
  
@@ -43,5 +44,9 @@ app.get('/ListarDirigidasDirector/:director', jsonParser,(req, res) => ListarDir
 app.get('/ListarPrecioBajo15', jsonParser,(req, res) => ListarPrecioBajo15(req, res));
 
 
+app.get('/SearchGYearPelicula/:FechaDeEstreno', jsonParser,(req, res) => SearchGYearPelicula(req, res));
+
+//segunda parte 
+app.get('/getallPelis', jsonParser,(req, res) => getallPelis(req, res));
 
 app.listen(PORT || process.env.PORT )
