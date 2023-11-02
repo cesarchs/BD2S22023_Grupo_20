@@ -160,6 +160,111 @@ export async function lowerprice15(){
     })
 }
 
+export async function topDirectores(){
+    const params = {
+        TableName: Table,         
+    };
+    
+    return new Promise( (resolve  ) => {  db.scan(params, (error, data) => {
+          //console.log("llega aca")
+        if (error) {
+          console.error('Error al escanear la tabla:', error);
+        } else {         
+            const directorCalificaciones = {};
+
+            data.Items.forEach(item => {
+              const director = item.director.nombre;
+              const calificacion = item.Calificacion;
+        
+              if (!directorCalificaciones[director]) {
+                directorCalificaciones[director] = {
+                  totalCalificaciones: 0,
+                  sumaCalificaciones: 0,
+                };
+              }
+        
+              directorCalificaciones[director].totalCalificaciones++;
+              directorCalificaciones[director].sumaCalificaciones += calificacion;
+            });
+        
+            // Calcula el promedio de calificación para cada director
+            const directoresPromedio = Object.keys(directorCalificaciones).map(director => {
+              const directorInfo = directorCalificaciones[director];
+              return {
+                director,
+                promedioCalificacion: directorInfo.sumaCalificaciones / directorInfo.totalCalificaciones,
+              };
+            });
+        
+            // Ordena los directores por calificación promedio en orden descendente
+            directoresPromedio.sort((a, b) => b.promedioCalificacion - a.promedioCalificacion);
+        
+            // Muestra los 10 mejores directores
+            const mejoresDirectores = directoresPromedio.slice(0, 10);
+            resolve( mejoresDirectores)
+        }
+    });
+    })
+}
+
+export async function preciopromediio(){
+    const params = {
+        TableName: Table,         
+    };
+    
+    return new Promise( (resolve  ) => {  db.scan(params, (error, data) => {
+        //console.log("llega aca")
+        if (error) {
+            console.error('Error al escanear la tabla:', error);
+        } else {
+
+            const totalPeliculas = data.Items.length;
+            let sumaPrecios = 0;
+            let sumaPrecios2 = 0;
+            
+            data.Items.forEach(item => {
+                sumaPrecios += item.Precio;
+                sumaPrecios2 += item.Precio2;
+            });
+            
+            const precioPromedio = sumaPrecios / totalPeliculas;
+            const precioPromedio2 = sumaPrecios2 / totalPeliculas;
+            
+            resolve( {precioPromedio1: precioPromedio, precioPromedio2: precioPromedio2})
+        }
+    });
+})
+}
+
+export async function sortbycalification(){
+    const params = {
+        TableName: Table,         
+    };
+    
+    return new Promise( (resolve  ) => {  db.scan(params, (error, data) => {
+          //console.log("llega aca")
+        if (error) {
+          console.error('Error al escanear la tabla:', error);
+        } else {         
+             // Procesa los datos para calcular el promedio de calificación por película
+                const peliculasConPromedio = data.Items.map(item => {
+                    const calificacion = item.Calificacion;
+                    return {
+                    ...item,
+                    promedioCalificacion: calificacion,
+                    };
+                });
+            
+                // Ordena las películas por calificación promedio de mayor a menor
+                peliculasConPromedio.sort((a, b) => b.promedioCalificacion - a.promedioCalificacion);
+  
+            resolve( peliculasConPromedio)
+        }
+    });
+    })
+}
+
+
 export {
     createOrUpdate,
     readAllUsers,
