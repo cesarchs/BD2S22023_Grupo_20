@@ -4,7 +4,7 @@ import { createOrUpdate, deleteUserById, getUserById, readAllUsers } from './db.
 const router = express.Router()
 
 // READ ALL Users
-router.get('/users', async(req, res) => {
+router.get('/pelis', async(req, res) => {
     const { success, data } = await readAllUsers()
 
     if(success){
@@ -14,7 +14,7 @@ router.get('/users', async(req, res) => {
 })
 
 // Get User by ID
-router.get('/user/:id', async(req, res) => {
+router.get('/peli/:id', async(req, res) => {
     const { id } = req.params
     const { success, data } = await getUserById(id)
     console.log(data)
@@ -27,7 +27,7 @@ router.get('/user/:id', async(req, res) => {
 
 
 // Create User
-router.post('/user', async(req, res) => {
+router.post('/peli', async(req, res) => {
     const { success, data } = await createOrUpdate(req.body)
 
     if(success){
@@ -39,7 +39,7 @@ router.post('/user', async(req, res) => {
 
 
 // Update User by ID
-router.put('/user/:id', async(req, res) => {
+router.put('/peli/:id', async(req, res) => {
     const user = req.body
     const { id } = req.params
     user.id = parseInt(id)
@@ -55,7 +55,7 @@ router.put('/user/:id', async(req, res) => {
 
 
 // Delete User by Id
-router.delete('/user/:id', async (req, res) => {
+router.delete('/peli/:id', async (req, res) => {
     const { id } = req.params
     const { success, data } = await deleteUserById(id)
     if (success) {

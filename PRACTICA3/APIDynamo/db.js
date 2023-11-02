@@ -1,5 +1,8 @@
 import {db, Table} from './db.config.js'
 
+
+// CRUD
+
 // Create or Update users
 const createOrUpdate = async (data = {}) =>{
     const params = {
@@ -11,6 +14,7 @@ const createOrUpdate = async (data = {}) =>{
         await db.put(params).promise()
         return { success: true }
     } catch(error){
+        console.log(error)
         return { success: false}
     }
 }
@@ -73,3 +77,6 @@ export {
     getUserById,
     deleteUserById
 }
+
+
+// CONSULTAS 
