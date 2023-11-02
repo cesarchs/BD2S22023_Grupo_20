@@ -23,7 +23,16 @@ export const querys = {
     addengine_company: "INSERT INTO game_engine_company (id_engine, id_company) VALUES(@id_engine, @id_company);",
     addengine_platform: "INSERT INTO game_engine_platform (id_engine, id_platform) VALUES(@id_engine, @id_platform);",
 
+
     addrelease_date: "INSERT INTO release_date (id, date, human, platform, region, status, m, y, id_game) VALUES(@id, @date, @human, @platform, @region, @status, @m, @y, @id_game);",
 
+
+
+    version: "INSERT INTO version (id_platform, id_platform_version) VALUES(@id_platform, @id_platform_version);",
+    platform_version_releasedate: "INSERT INTO platform_version_releasedate (id, category, date, human, m, region, y) VALUES (@id, @category, @date, @human, @m, @region, @y);",
+    platform_version: "INSERT INTO platform_version (id, name, connectivity, cpu, graphics, media, memory, online, os, platform_logo, resolutions, slug, sound, storage, summary, url) VALUES (@id, @name, @connectivity, @cpu, @graphics, @media, @memory, @online, @os, @platform_logo, @resolutions, @slug, @sound, @storage, @summary, @url);",
+    Platform_version_company: "INSERT INTO Platform_version_company (id, comment, company, developer, manufacturer) VALUES (@id, @comment, @company, @developer, @manufacturer);",
+    platform_releases: "INSERT INTO platform_releases (id_Platform_version_releasedate, id_Platform_version) VALUES (@id_Platform_version_releasedate, @id_Platform_version);",
+    Platform_company: "INSERT INTO Platform_company (id_Platform_version_company, id_Platform_version) VALUES (@id_Platform_version_company, @id_Platform_version);"
 
 };
