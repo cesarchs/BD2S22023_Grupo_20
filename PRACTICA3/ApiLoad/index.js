@@ -3,6 +3,7 @@ const app = express();
 const PORT = 4040;
 import bodyParser from'body-parser'
 import { test, insert} from './funcs/funcs.js'
+import { getallPelis } from './funcs/funcs2.js'
 
 var jsonParser = bodyParser.json()
  
@@ -32,6 +33,8 @@ app.get('/insert-libros', jsonParser,(req, res) => test(req, res));
 
 app.get('/insertPeliculas', jsonParser,(req, res) => insert(req, res));
 
+app.get('/getallPelis', jsonParser,(req, res) => getallPelis(req, res));
 
 
+console.log('Server on port', PORT);
 app.listen(PORT || process.env.PORT )
