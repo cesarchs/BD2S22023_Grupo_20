@@ -1,5 +1,5 @@
 import { conectarBaseDeDatos, obtenerColeccion, cerrarConexion } from './dbcon.js'
-import { createOrUpdate, deleteUserById, getUserById, readAllUsers, listAll, searchbygenre, ListAllClasR, ListDirectorFilms, lowerprice15} from './dynamofuncs.js'
+import { createOrUpdate, deleteUserById, getUserById, readAllUsers, listAll, searchbygenre, ListAllClasR, ListDirectorFilms, lowerprice15, topDirectores, preciopromediio, sortbycalification} from './dynamofuncs.js'
 
 import fs from 'fs';
 import fastcsv from 'fast-csv';
@@ -140,7 +140,7 @@ export async function SearchGenrePelicula(req, res) {
 export async function ListAllCalsificationR(req, res) {
     console.log(req.params.genero)
     try {
-        const data = await ListAllClasR(req.params.genero).then((data) => {
+        const data = await ListAllClasR().then((data) => {
             console.log(data)
             res.send(data)
         })        
@@ -166,7 +166,43 @@ export async function ListarDirigidasDirector(req, res) {
 export async function ListarPrecioBajo15(req, res) {
     console.log(req.params.director)
     try {
-        const data = await lowerprice15(req.params.director).then((data) => {
+        const data = await lowerprice15().then((data) => {
+            console.log(data)
+            res.send(data)
+        })        
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+export async function top10Directores(req, res) {
+    console.log(req.params.director)
+    try {
+        const data = await topDirectores().then((data) => {
+            console.log(data)
+            res.send(data)
+        })        
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+export async function PrecioPromedioPeliculas(req, res) {
+    console.log(req.params.director)
+    try {
+        const data = await preciopromediio().then((data) => {
+            console.log(data)
+            res.send(data)
+        })        
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+export async function ListaordenarMayorMenor(req, res) {
+    console.log(req.params.director)
+    try {
+        const data = await sortbycalification().then((data) => {
             console.log(data)
             res.send(data)
         })        
