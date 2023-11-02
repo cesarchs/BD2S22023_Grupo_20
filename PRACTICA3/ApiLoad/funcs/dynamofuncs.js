@@ -124,6 +124,42 @@ export async function ListAllClasR(generoABuscar){
     })
 }
 
+export async function ListDirectorFilms(director){
+    const params = {
+        TableName: Table,         
+    };
+    
+    return new Promise( (resolve  ) => {  db.scan(params, (error, data) => {
+          //console.log("llega aca")
+        if (error) {
+          console.error('Error al escanear la tabla:', error);
+        } else {
+          console.log('Películas disponibles:', data.Items);
+          // data.Items contendrá todas las películas disponibles
+          resolve( data.Items.filter(item => item.director.nombre === director))
+        }
+    });
+    })
+}
+
+export async function lowerprice15(){
+    const params = {
+        TableName: Table,         
+    };
+    
+    return new Promise( (resolve  ) => {  db.scan(params, (error, data) => {
+          //console.log("llega aca")
+        if (error) {
+          console.error('Error al escanear la tabla:', error);
+        } else {
+          console.log('Películas disponibles:', data.Items);
+          // data.Items contendrá todas las películas disponibles
+          resolve( data.Items.filter(item => item.Precio < 15))
+        }
+    });
+    })
+}
+
 export {
     createOrUpdate,
     readAllUsers,

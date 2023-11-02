@@ -1,5 +1,5 @@
 import { conectarBaseDeDatos, obtenerColeccion, cerrarConexion } from './dbcon.js'
-import { createOrUpdate, deleteUserById, getUserById, readAllUsers, listAll, searchbygenre, ListAllClasR } from './dynamofuncs.js'
+import { createOrUpdate, deleteUserById, getUserById, readAllUsers, listAll, searchbygenre, ListAllClasR, ListDirectorFilms, lowerprice15} from './dynamofuncs.js'
 
 import fs from 'fs';
 import fastcsv from 'fast-csv';
@@ -141,6 +141,32 @@ export async function ListAllCalsificationR(req, res) {
     console.log(req.params.genero)
     try {
         const data = await ListAllClasR(req.params.genero).then((data) => {
+            console.log(data)
+            res.send(data)
+        })        
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+export async function ListarDirigidasDirector(req, res) {
+    console.log(req.params.director)
+    try {
+        const data = await ListDirectorFilms(req.params.director).then((data) => {
+            console.log(data)
+            res.send(data)
+        })        
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+// 5. Buscar películas con un precio inferior a 15:
+
+export async function ListarPrecioBajo15(req, res) {
+    console.log(req.params.director)
+    try {
+        const data = await lowerprice15(req.params.director).then((data) => {
             console.log(data)
             res.send(data)
         })        
