@@ -56,7 +56,7 @@ app.get('/PrecioPromedioPeliculas', jsonParser,(req, res) => PrecioPromedioPelic
 
 app.get('/ListaordenarMayorMenor', jsonParser,(req, res) => ListaordenarMayorMenor(req, res));
 
-app.get('/SearchGYearPelicula/:FechaDeEstreno', jsonParser,(req, res) => SearchGYearPelicula(req, res));
+app.get('/SearchByYearPelicula/:FechaDeEstreno', jsonParser,(req, res) => SearchGYearPelicula(req, res));
 
 app.get('/SearchByClave/:palabraClave', jsonParser,(req, res) => SearchByClave(req, res));
 //segunda parte 

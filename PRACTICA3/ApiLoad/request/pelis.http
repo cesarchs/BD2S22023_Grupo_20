@@ -3,7 +3,7 @@
 GET http://localhost:4040/getallPelis
 
 ###
-GET http://localhost:4040/SearchGYearPelicula/2014
+GET http://localhost:4040/SearchByYearPelicula/1997
 
 ### consulta 8  Buscar películas con una palabra clave en el título o descripción
 
