@@ -1,4 +1,4 @@
-import {readAllUsers,searchbyYear } from './dynamofuncs2.js'
+import {readAllUsers,searchbyYear, searchByWord } from './dynamofuncs2.js'
 
 export  async function  getallPelis (req, res){
 
@@ -22,6 +22,19 @@ export async function SearchGYearPelicula(req, res) {
     console.log(req.params.FechaDeEstreno)
     try {
         const data = await searchbyYear(req.params.FechaDeEstreno).then((data) => {
+            console.log(data)
+            res.send(data)
+        })        
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+
+export async function SearchByClave(req, res) {
+    console.log(req.params.palabraClave)
+    try {
+        const data = await searchByWord(req.params.palabraClave).then((data) => {
             console.log(data)
             res.send(data)
         })        

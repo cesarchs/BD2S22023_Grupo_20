@@ -3,4 +3,8 @@
 GET http://localhost:4040/getallPelis
 
 ###
-GET http://localhost:4040/SearchGYearPelicula/2015
+GET http://localhost:4040/SearchGYearPelicula/2014
+
+### consulta 8  Buscar películas con una palabra clave en el título o descripción
+
+GET http://localhost:4040/SearchByClave/Interestelar

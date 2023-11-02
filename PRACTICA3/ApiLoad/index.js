@@ -3,7 +3,7 @@ const app = express();
 const PORT = 4040;
 import bodyParser from'body-parser'
 import { test, insert, listAllPeliculas, SearchGenrePelicula, ListAllCalsificationR, ListarDirigidasDirector, ListarPrecioBajo15, top10Directores, PrecioPromedioPeliculas, ListaordenarMayorMenor} from './funcs/funcs.js'
-import {getallPelis, SearchGYearPelicula } from './funcs/funcs2.js'
+import {getallPelis, SearchGYearPelicula, SearchByClave } from './funcs/funcs2.js'
 
 
 import Consultas from './funcs/funcs3.js';
@@ -58,6 +58,7 @@ app.get('/ListaordenarMayorMenor', jsonParser,(req, res) => ListaordenarMayorMen
 
 app.get('/SearchGYearPelicula/:FechaDeEstreno', jsonParser,(req, res) => SearchGYearPelicula(req, res));
 
+app.get('/SearchByClave/:palabraClave', jsonParser,(req, res) => SearchByClave(req, res));
 //segunda parte 
 app.get('/getallPelis', jsonParser,(req, res) => getallPelis(req, res));
 
