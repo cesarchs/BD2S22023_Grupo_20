@@ -2,8 +2,8 @@ import express from'express'
 const app = express();
 const PORT = 4040;
 import bodyParser from'body-parser'
-import { test, insert} from './funcs/funcs.js'
 import { getallPelis } from './funcs/funcs2.js'
+import { test, insert, listAllPeliculas, SearchGenrePelicula, ListAllCalsificationR} from './funcs/funcs.js'
 
 var jsonParser = bodyParser.json()
  
@@ -33,8 +33,16 @@ app.get('/insert-libros', jsonParser,(req, res) => test(req, res));
 
 app.get('/insertPeliculas', jsonParser,(req, res) => insert(req, res));
 
+app.get('/listAllPeliculas', jsonParser,(req, res) => listAllPeliculas(req, res));
 app.get('/getallPelis', jsonParser,(req, res) => getallPelis(req, res));
 
+app.get('/searchgenrePeliculas/:genero', jsonParser,(req, res) => SearchGenrePelicula(req, res));
 
 console.log('Server on port', PORT);
+app.get('/ListAllCalsificationR', jsonParser,(req, res) => ListAllCalsificationR(req, res));
+
+app.get('/ListAllCalsificationR', jsonParser,(req, res) => ListAllCalsificationR(req, res));
+
+
+
 app.listen(PORT || process.env.PORT )

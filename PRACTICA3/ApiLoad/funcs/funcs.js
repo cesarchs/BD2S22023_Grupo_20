@@ -1,5 +1,5 @@
 import { conectarBaseDeDatos, obtenerColeccion, cerrarConexion } from './dbcon.js'
-import { createOrUpdate, deleteUserById, getUserById, readAllUsers } from './dynamofuncs.js'
+import { createOrUpdate, deleteUserById, getUserById, readAllUsers, listAll, searchbygenre, ListAllClasR } from './dynamofuncs.js'
 
 import fs from 'fs';
 import fastcsv from 'fast-csv';
@@ -87,7 +87,7 @@ export  async function  insert (req, res){
             }
 
             let  nuevo = {id:results.length, Titulo: row.Titulo, FechaDeEstreno: row.FechaDeEstreno, IdiomaOriginal: row.IdiomaOriginal, Descripcion: row.Descripcion, 
-                Precio: parseFloat(row.Precio), Genero: row.Genero, Calificacion: row.Calificacion, Calificacion: Number(row.Calificacion), Precio2: parseFloat(row.Precio2),
+                Precio: parseFloat(row.Precio), Genero: row.Genero, Clasificacion: row.Clasificacion, Calificacion: Number(row.Calificacion), Precio2: parseFloat(row.Precio2),
                 director:{id: Director.indexOf(row.Director), nombre: row.Director }, 
                 distribuidora:{id: Distribuidora.indexOf(row.Distribuidora), nombre: row.Distribuidora }};
 
@@ -106,4 +106,45 @@ export  async function  insert (req, res){
         console.error('Error al conectar a MongoDB:', error);
     }
     
+}
+
+
+// funciones para peliculas
+
+// 1. Listar todas las peliculas
+
+export async function listAllPeliculas(req, res) {
+    try {
+        const data = await listAll().then((data) => {
+            console.log(data)
+            res.send(data)
+        })        
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+
+export async function SearchGenrePelicula(req, res) {
+    console.log(req.params.genero)
+    try {
+        const data = await searchbygenre(req.params.genero).then((data) => {
+            console.log(data)
+            res.send(data)
+        })        
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+export async function ListAllCalsificationR(req, res) {
+    console.log(req.params.genero)
+    try {
+        const data = await ListAllClasR(req.params.genero).then((data) => {
+            console.log(data)
+            res.send(data)
+        })        
+    } catch (error) {
+        res.status(500).json(error)
+    }
 }
