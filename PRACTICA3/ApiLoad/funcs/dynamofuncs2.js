@@ -40,6 +40,29 @@ return new Promise((resolve) => {
 }
 
 
+export async function searchByWord(keyword){
+    console.log(keyword)
+    
+      const params = {
+          TableName: Table,
+          FilterExpression: 'contains (Titulo, :keyword) or contains (Descripcion, :keyword)',  
+          ExpressionAttributeValues: {
+            ':keyword': keyword
+          }    
+      };
+      
+      return new Promise((resolve, reject) => {
+        db.scan(params, (error, data) => {
+          if (error) {
+            console.error('Error al realizar el escaneo:', error);
+            reject(error); // Rechaza la promesa si hay un error
+          } else {
+            resolve(data.Items); // Resuelve la promesa con los ítems que cumplen con la condición "LIKE"
+          }
+        });
+      });
+    }
+
 
 
 export {
