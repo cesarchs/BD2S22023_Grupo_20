@@ -2,7 +2,7 @@ import express from'express'
 const app = express();
 const PORT = 4040;
 import bodyParser from'body-parser'
-import { test, insert} from './funcs/funcs.js'
+import { test, insert, listAllPeliculas, SearchGenrePelicula, ListAllCalsificationR} from './funcs/funcs.js'
 
 var jsonParser = bodyParser.json()
  
@@ -31,6 +31,14 @@ app.use(function (req, res, next) {
 app.get('/insert-libros', jsonParser,(req, res) => test(req, res));
 
 app.get('/insertPeliculas', jsonParser,(req, res) => insert(req, res));
+
+app.get('/listAllPeliculas', jsonParser,(req, res) => listAllPeliculas(req, res));
+
+app.get('/searchgenrePeliculas/:genero', jsonParser,(req, res) => SearchGenrePelicula(req, res));
+
+app.get('/ListAllCalsificationR', jsonParser,(req, res) => ListAllCalsificationR(req, res));
+
+app.get('/ListAllCalsificationR', jsonParser,(req, res) => ListAllCalsificationR(req, res));
 
 
 

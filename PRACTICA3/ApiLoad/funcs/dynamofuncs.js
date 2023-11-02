@@ -65,11 +65,69 @@ const deleteUserById = async(value, key = 'id' ) => {
         return{ success: false }
     }
 }
+//
+export async function listAll (){
+    const params = {
+        TableName: Table,
+    };
+    
+    return new Promise( (resolve  ) => {  db.scan(params, (error, data) => {
+          //console.log("llega aca")
+        if (error) {
+          console.error('Error al escanear la tabla:', error);
+        } else {
+          //console.log('Películas disponibles:', data.Items);
+          // data.Items contendrá todas las películas disponibles
+          resolve( data.Items)
+        }
+    });
+    })
+}
 
+export async function searchbygenre(generoABuscar){
+    const params = {
+        TableName: Table,         
+    };
+    
+    return new Promise( (resolve  ) => {  db.scan(params, (error, data) => {
+          //console.log("llega aca")
+        if (error) {
+          console.error('Error al escanear la tabla:', error);
+        } else {
+          console.log('Películas disponibles:', data.Items);
+          // data.Items contendrá todas las películas disponibles
+          resolve( data.Items.filter(item => item.Genero === generoABuscar))
+        }
+    });
+    })
+}
+
+export async function ListAllClasR(generoABuscar){
+    const params = {
+        TableName: Table,         
+    };
+    
+    return new Promise( (resolve  ) => {  db.scan(params, (error, data) => {
+          //console.log("llega aca")
+        if (error) {
+          console.error('Error al escanear la tabla:', error);
+        } else {
+          console.log('Películas disponibles:', data.Items);
+          // data.Items contendrá todas las películas disponibles
+          resolve( data.Items.filter(item => {
+            const clasificacion = item.Calificacion;
+            return clasificacion === 'R' || clasificacion === 'D' || clasificacion === 'C';
+          })
+          )
+        }
+    });
+    })
+}
 
 export {
     createOrUpdate,
     readAllUsers,
     getUserById,
-    deleteUserById
+    deleteUserById,
+    
 }
