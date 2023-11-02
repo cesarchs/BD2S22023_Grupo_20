@@ -1,0 +1,6 @@
+
+### ver todas las consultas 
+GET http://localhost:4040/getallPelis
+
+###
+GET http://localhost:4040/SearchGYearPelicula/2015
