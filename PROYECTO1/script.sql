@@ -4,6 +4,11 @@ CREATE TABLE region (
     nombre NVARCHAR(50),
 );
 
+CREATE TABLE release_date_region_enum (
+    id INT PRIMARY KEY,
+    name NVARCHAR(50)
+);
+
 CREATE TABLE collections (
     id INT PRIMARY KEY,
     name NVARCHAR(100),
