@@ -65,6 +65,20 @@ router.delete('/peli/:id', async (req, res) => {
 })
   
 
+// endpont de consultas
+
+// Get User by ID
+router.get('/genero/:Categoria', async(req, res) => {
+    const { Categoria } = req.params
+    const { success, data } = await getUserByGenero(Categoria)
+    console.log(data)
+    if(success){
+        return res.json({success, data})
+    }
+
+    return res.status(500).json({success: false, message: "Error"})
+})
+
 
 
 export default router

@@ -70,13 +70,30 @@ const deleteUserById = async(value, key = 'id' ) => {
     }
 }
 
+// CONSULTAS 
+// Read Users by ID
+const getUserByGenero = async (value, key = 'Categoria') => {
+    const params = {
+        TableName: Table,
+        Key: {
+            [key]: value
+        }
+    }
+    try {
+        const { Item = {} } =  await db.get(params).promise()
+        return { success: true, data: Item }
+    } catch (error) {
+        return {  success: false, data: null}        
+    }
+}
+
 
 export {
     createOrUpdate,
     readAllUsers,
     getUserById,
-    deleteUserById
+    deleteUserById,
+    //consultas
+    getUserByGenero
 }
 
-
-// CONSULTAS 

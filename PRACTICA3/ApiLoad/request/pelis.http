@@ -1,6 +1,6 @@
 
 ### saludo
-GET http://localhost:8000/
+GET http://localhost:4040/
 
 ### ver todas las consultas 
 GET http://localhost:8000/api/pelis
